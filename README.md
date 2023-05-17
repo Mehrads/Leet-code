@@ -27,6 +27,7 @@ class Solution:
 
 
 **Note:** Number is not iterable so we can't iterate through it with `for` loop.
+
 **Note2: Python’s `map()`**  is a built-in function that allows you to process and transform all the items in an iterable without using an explicit `for` loop, a technique commonly known as mapping. `map()` is useful when you need to apply a transformation `function` to `each item` in an iterable and transform them into a new iterable.
 
 When you compare mapping with list comprehension, it is slightly faster when you don't need lambda for defining a function.
