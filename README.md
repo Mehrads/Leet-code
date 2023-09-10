@@ -1,6 +1,8 @@
 # Leet-code
 In this repository, I am going to share everything I learn from LeetCode
 
+# Integers
+
 ## Two Sum 
 Problem: Given an array of integers `nums` and an integer `target`, return indices of the two numbers such that they add up to `target`.
 
@@ -32,3 +34,44 @@ class Solution:
 
 When you compare mapping with list comprehension, it is slightly faster when you don't need lambda for defining a function.
 
+# Strings
+
+## Merge Strings Alternately
+Problem: You are given two strings word1 and word2. Merge the strings by adding letters in alternating order, starting with word1. If a string is longer than the other, append the additional letters onto the end of the merged string.
+Return the merged string.
+
+Let's take a look at some features about strings.
+1. When you use `list()` on a string, it will automatically split the string into letters.
+2. The string `join()` method returns a string by joining all the elements of an iterable (list, string, tuple), separated by the given separator.
+```python
+text = ['Python', 'is', 'a', 'fun', 'programming', 'language']
+
+# join elements of text with space
+print(' '.join(text))
+
+# Output: Python is a fun programming language
+```
+
+Also let's take a look about the list's features:
+1. Add Elements: There are four methods to add elements to a List in Python.
+   * `append()`: append the element to the end of the list.
+   * `insert()`: inserts the element before the given index.
+   * `extend()`: extends the list by appending elements from the iterable.
+   * List Concatenation: We can use the + operator to concatenate multiple lists and create a new list.
+2. Removing Elements:
+   * You can remove the item at the specified position and get its value with `pop()`. The index starts at 0 (zero-based indexing).
+   * You can use `remove()` to remove the first item in the list with the specified value.
+
+Solution:
+```python
+class Solution:
+    def mergeAlternately(self, word1: str, word2: str) -> str:
+        result = []
+        for i in range(min(len(word1),len(word2))):
+            result.append(word1[i] + word2[i])
+            
+        return ''.join(result) + word1[i+1:] + word2[i+1:]
+```
+First of all, we used min() function to get the string with less letters.
+Secondly, adding to string with + is going to add the second string to the first one.
+As you can see, we used join method to concat the letters of our list together.
